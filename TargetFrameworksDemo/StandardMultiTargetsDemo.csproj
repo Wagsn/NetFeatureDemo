@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!--<TargetFramework>netstandard2.0</TargetFramework>-->
+    <!-- 这里在前面为在引用管理中所选框架，无法识别当前目标框架请使用上面的配置 -->
+    <TargetFrameworks>netstandard2.0;net40;</TargetFrameworks>
+  </PropertyGroup>
+
+  <!-- 定义平台常量 用于条件编译 #if -->
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net40' OR '$(TargetFramework)' == 'net46'">
+    <DefineConstants>NETFULL;NET</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+    <DefineConstants>CORE20</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard1.0'">
+    <DefineConstants>CORE</DefineConstants>
+  </PropertyGroup>
+
+  <!-- 设置不同目标框架生成XML文档 -->
+  <!--<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\StandardMultiTargetsDemo.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net40|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\StandardMultiTargetsDemo.xml</DocumentationFile>
+  </PropertyGroup>-->
+
+</Project>
