@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 
-namespace Standard20FeatureDemo.Tests
+namespace NetFeatureDemo.Tests
 {
     /// <summary>
     /// 测试HttpClient
     /// </summary>
-    public class HttpClientTest
+    public class HttpClientTest : TestBase
     {
         /// <summary>
         /// 测试HttpClient Get请求
@@ -47,6 +47,28 @@ namespace Standard20FeatureDemo.Tests
             {
                 var content = response.Content.ReadAsStringAsync().Result;
                 Console.WriteLine(content);
+            }
+        }
+
+        /// <summary>
+        /// TODO 改为通过反射自动调用
+        /// </summary>
+        /// <param name="args"></param>
+        public override void Test(string[] args)
+        {
+            if (args == null || args.Length == 0) return;
+
+            switch (args[0])
+            {
+                case "send":
+                    TestSend();
+                    break;
+                case "get":
+                    TestGet();
+                    break;
+                default:
+                    Console.WriteLine("没找到测试单元");
+                    break;
             }
         }
     }

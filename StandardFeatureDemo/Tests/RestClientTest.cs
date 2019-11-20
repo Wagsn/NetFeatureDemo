@@ -1,20 +1,20 @@
-﻿using System;
+﻿#if CORE20
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace Standard20FeatureDemo.Tests
+namespace NetFeatureDemo.Tests
 {
-#if CORE20
     /// <summary>
     /// 测试Nuget包RestClient
     /// </summary>
-    public class RestClientTest
+    public class RestClientTest : TestBase
     {
         /// <summary>
         /// 测试RestClient的Get请求
         /// </summary>
-        public static void Test()
+        public override void Test(string[] args)
         {
             RestSharp.RestClient client = new RestSharp.RestClient();
 
@@ -29,5 +29,5 @@ namespace Standard20FeatureDemo.Tests
             }
         }
     }
-#endif
 }
+#endif

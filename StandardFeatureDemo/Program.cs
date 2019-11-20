@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Standard20FeatureDemo
+namespace NetFeatureDemo
 {
     /// <summary>
     /// 程序
@@ -15,14 +15,36 @@ namespace Standard20FeatureDemo
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            //Tests.TestWebClient.TestDownload();
-            //Tests.WebClientTest.TestGet();
-            //Tests.TestHttpClient.TestGet();
-            //Tests.TestHttpClient.TestSend();
-            //Tests.TestRestClient.Test();
-            Tests.WebRequestTest.Test();
+            //TestDownwardTransformation();
+
+            List<Tests.ITest> tests = new List<Tests.ITest>();
+
+#if CORE20
+            tests.Add(new Tests.HttpClientTest());
+            tests.Add(new Tests.WebClientTest());
+            tests.Add(new Tests.RestClientTest());
+#endif
+            tests.Add(new Tests.WebRequestTest());
+
+            var str = Console.ReadLine();
+            var test = tests.Find(a => a.Name == str);
+            var arg = Console.ReadLine();
+            test.Test(new string[] { arg });
 
             Console.ReadKey();
         }
+
+        /// <summary>
+        /// 测试向下转型，无法将父类对象转换成子类对象
+        /// 但是可以将指向子类对象的父类引用转型成子类引用
+        /// </summary>
+        public static void TestDownwardTransformation()
+        {
+            Dog animal = (Dog)new Animal();
+            animal.Call();
+        }
+        public class Animal { public string Name; }
+        public class Dog: Animal { public void Call() { } }
+
     }
 }

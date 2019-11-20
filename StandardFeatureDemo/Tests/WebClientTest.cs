@@ -5,12 +5,12 @@ using System.Diagnostics;
 using System.Text;
 using System.Linq;
 
-namespace Standard20FeatureDemo.Tests
+namespace NetFeatureDemo.Tests
 {
     /// <summary>
     /// 测试WebClient
     /// </summary>
-    public class WebClientTest
+    public class WebClientTest : TestBase
     {
         /// <summary>
         /// 测试WebClient下载文件
@@ -92,6 +92,24 @@ namespace Standard20FeatureDemo.Tests
 
             byte[] responseData = wc.UploadData(uri, method, postData); // 得到返回字符流
             return encoding.GetString(responseData);// 解码                  
+        }
+
+        public override void Test(string[] args)
+        {
+            if (args == null || args.Length == 0) return;
+
+            switch (args[0])
+            {
+                case "get":
+                    TestGet();
+                    break;
+                case "download":
+                    TestDownload();
+                    break;
+                default:
+                    Console.WriteLine("未找到测试单元");
+                    break;
+            }
         }
     }
 }
