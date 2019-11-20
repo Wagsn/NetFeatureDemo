@@ -11,10 +11,6 @@ namespace XkjRestSharp
     public interface IXkjRestResponse
     {
         /// <summary>
-        /// HTTP response status code
-        /// </summary>
-        System.Net.HttpStatusCode StatusCode { get; set; }
-        /// <summary>
         /// The URL that actually responded to the content (different from request if redirected)
         /// </summary>
         Uri ResponseUri { get; set; }
@@ -26,6 +22,16 @@ namespace XkjRestSharp
         /// The HTTP protocol version (1.0, 1.1, etc)
         /// </summary>
         Version ProtocolVersion { get; set; }
+
+        /// <summary>
+        /// HTTP response status code
+        /// </summary>
+        System.Net.HttpStatusCode StatusCode { get; set; }
+        /// <summary>
+        /// Description of HTTP status returned
+        /// </summary>
+        string StatusDescription { get; set; }
+
         /// <summary>
         /// HttpWebResponse.Server
         /// </summary>
@@ -38,6 +44,7 @@ namespace XkjRestSharp
         /// Whether or not the response status code indicates success
         /// </summary>
         bool IsSuccessful { get; }
+
         /// <summary>
         /// String representation of response content
         /// </summary>
@@ -55,9 +62,9 @@ namespace XkjRestSharp
         /// </summary>
         string ContentType { get; set; }
         /// <summary>
-        /// Description of HTTP status returned
+        /// HTTP 请求所花费的时间/ms
         /// </summary>
-        string StatusDescription { get; set; }
+        long Time { get; set; }
     }
 
     public interface IXkjRestResponse<TData> : IXkjRestResponse

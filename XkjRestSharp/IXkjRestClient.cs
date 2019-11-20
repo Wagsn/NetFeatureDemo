@@ -11,13 +11,20 @@ namespace XkjRestSharp
     public interface IXkjRestClient
     {
         /// <summary>
+        /// 反序列化
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="response"></param>
+        /// <returns></returns>
+        IXkjRestResponse<T> Deserialize<T>(IXkjRestResponse response);
+        /// <summary>
         /// 执行请求
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="request"></param>
         /// <returns></returns>
-        IXkjRestResponse<T> Execute<T>(IXkjRestRequest request) where T : new();
+        IXkjRestResponse<T> Send<T>(IXkjRestRequest request);
 
-        IXkjRestResponse Execute(IXkjRestRequest request);
+        IXkjRestResponse Send(IXkjRestRequest request);
     }
 }

@@ -9,6 +9,11 @@ namespace XkjRestSharp
         public Method Method { get; set; } = Method.GET;
         public string Resource { get; set; }
 
+        public XkjRestRequest(string resource, Method method, Dictionary<string, object> headers) : this(resource, method)
+        {
+
+        }
+
         public XkjRestRequest(string resource, Method method) : this(resource)
         {
             this.Method = method;
@@ -18,5 +23,7 @@ namespace XkjRestSharp
         {
             this.Resource = resource;
         }
+
+        public Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>(); 
     }
 }

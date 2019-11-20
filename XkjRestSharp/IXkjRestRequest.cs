@@ -22,5 +22,7 @@ namespace XkjRestSharp
         /// {BaseUrl}/{Resource} (BaseUrl is scheme + domain, e.g. http://example.com)
         /// </summary>
         string Resource { get; set; }
+
+        Dictionary<string, string> Headers { get; set; }
     }
 }
