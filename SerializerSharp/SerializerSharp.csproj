@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="12.2.1" />
     <PackageReference Include="MosaicoSolutions.CSharpProperties" Version="4.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="PeanutButter.INI" Version="1.2.317" />
