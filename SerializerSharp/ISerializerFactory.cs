@@ -22,5 +22,11 @@ namespace SerializerSharp
         /// <param name="serializer"></param>
         /// <returns></returns>
         void AddSerializer(ISerializer serializer);
+
+        /// <summary>
+        /// 添加序列化器
+        /// </summary>
+        /// <typeparam name="TSerializer"></typeparam>
+        void AddSerializer<TSerializer>() where TSerializer : ISerializer, new();
     }
 }
