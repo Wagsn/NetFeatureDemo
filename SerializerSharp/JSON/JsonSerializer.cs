@@ -19,10 +19,10 @@ namespace SerializerSharp.JSON
 
         public TypeEntity Deserialize<TypeEntity>(Stream stream)
         {
-            var reader = new StreamReader(stream);
-            var entity = Deserialize<TypeEntity>(reader.ReadToEnd());
-            reader.Close();
-            return entity;
+            using(var reader = new StreamReader(stream))
+            {
+                return Deserialize<TypeEntity>(reader.ReadToEnd());
+            }
         }
 
         public object Deserialize(string content, Type type)
