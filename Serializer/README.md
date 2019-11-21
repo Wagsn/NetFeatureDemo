@@ -3,17 +3,15 @@
 核心思想：序列化与反序列化
 
 ## 用途：
-- 持久化存储
-    配置文件
-- 网络传输之间
-    数据传输对象
+- 持久化存储配置文件 Config
+- 网络之间传输数据 DTO
 - 不同编程语言之间交换数据
 
 ## 已有的相关语言
 
-- CSV: Comma-Separated Values, 以纯文本的形式存储表格数据
+- CSV(Comma-Separated Values): 以纯文本的形式存储表格数据
 - INI: (用户配置) 后缀名：[.ini]
-- JSON(): (用于WebAPI传输和配置) 后缀名：[.json]
+- JSON(JavaScript Object Notation): (用于WebAPI传输和配置) 后缀名：[.json]
 - Properties: (用户配置)
 - Protobuf: (用户WebAPI传输) 后缀名：[.proto]
 - TOML:
