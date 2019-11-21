@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SerializerSharp.Props
 {
-    public class PropertiesSerializerTest
+    internal class PropertiesSerializerTest
     {
         public static void Test()
         {

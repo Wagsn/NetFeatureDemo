@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SerializerSharp.YAML
 {
-    public class YAMLTest
+    internal class YAMLTest
     {
         public static void Test()
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SerializerSharp.JSON
 {
-    public class JSONTest
+    internal class JSONTest
     {
         public static void Test()
         {
