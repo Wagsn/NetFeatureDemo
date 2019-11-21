@@ -37,10 +37,10 @@ namespace SerializerSharp.JSON
 
         public void Serialize(object entity, Stream stream)
         {
-            var writer = new StreamWriter(stream);
-            writer.Write(Serialize(entity));
-            writer.Flush();
-            writer.Close();
+            using(var writer = new StreamWriter(stream))
+            {
+                writer.Write(Serialize(entity));
+            }
         }
     }
 }
