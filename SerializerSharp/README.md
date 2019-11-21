@@ -19,7 +19,7 @@
 - [ ] Protobuf: (用户WebAPI传输) 后缀名：[.proto]
 - [ ] TOML:
 - [ ] XML:
-- [ ] [YAML](https://yaml.org/): (Python, Perl, Ruby; 用于持久化和配置) 后缀名：[.yml, .yaml]
+- [x] [YAML](https://yaml.org/): (Python, Perl, Ruby; 用于持久化和配置) 后缀名：[.yml, .yaml] 依赖于[YamlDotNet](https://github.com/aaubry/YamlDotNet/wiki)
 
 ## 序列化器与工厂
 
