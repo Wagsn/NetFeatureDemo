@@ -22,7 +22,9 @@ namespace XkjRestSharp
         /// {BaseUrl}/{Resource} (BaseUrl is scheme + domain, e.g. http://example.com)
         /// </summary>
         string Resource { get; set; }
-
+        /// <summary>
+        /// 请求头
+        /// </summary>
         Dictionary<string, string> Headers { get; set; }
     }
 }

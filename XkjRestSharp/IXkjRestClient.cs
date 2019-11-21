@@ -18,13 +18,17 @@ namespace XkjRestSharp
         /// <returns></returns>
         IXkjRestResponse<T> Deserialize<T>(IXkjRestResponse response);
         /// <summary>
-        /// 执行请求
+        /// 发送请求
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Response Body 反序列化类型</typeparam>
         /// <param name="request"></param>
         /// <returns></returns>
         IXkjRestResponse<T> Send<T>(IXkjRestRequest request);
-
+        /// <summary>
+        /// 发送请求
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         IXkjRestResponse Send(IXkjRestRequest request);
     }
 }
