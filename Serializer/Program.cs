@@ -23,6 +23,8 @@ namespace SerializerSharp
             Console.WriteLine();
             XML.XMLTest.Test();
             Console.WriteLine();
+            INI.INITest.Test();
+            Console.WriteLine();
             Props.PropertiesSerializerTest.Test();
         }
     }
