@@ -13,7 +13,7 @@ namespace SerializerSharpDemo
 
         public static void JsonTest()
         {
-            var ser = new SerializerSharp.JSON.Serializer();
+            var ser = new SerializerSharp.JSON.JsonSerializer();
             var per = new Person { Name = "Wagsn", Age = 23, Sex = true };
             Console.WriteLine("JSON:");
             var content = ser.Serialize(per);

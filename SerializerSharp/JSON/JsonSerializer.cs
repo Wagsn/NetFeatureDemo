@@ -8,7 +8,7 @@ namespace SerializerSharp.JSON
     /// <summary>
     /// JSON序列化器
     /// </summary>
-    public class Serializer : ISerializer
+    public class JsonSerializer : ISerializer
     {
         public TypeEntity Deserialize<TypeEntity>(string content)
         {
