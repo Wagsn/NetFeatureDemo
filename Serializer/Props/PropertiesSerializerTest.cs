@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Serializer.Props
+namespace SerializerSharp.Props
 {
     public class PropertiesSerializerTest
     {

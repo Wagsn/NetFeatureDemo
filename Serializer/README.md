@@ -1,10 +1,35 @@
 ﻿# 序列化器
 
-序列化与反序列化
+核心思想：序列化与反序列化
 
-Properties: (for Configuration)
-INI: (for Configuration)
-YAML: (Python, Perl, Ruby; for Serialize, Configuration)
-TOML
-Protobuf: (Network data transmission and exchange)
-JSON: (for Web API, Configuration)
+## 用途：
+- 持久化存储
+    配置文件
+- 网络传输之间
+    数据传输对象
+- 不同编程语言之间交换数据
+
+## 已有的相关语言
+
+- CSV: Comma-Separated Values, 以纯文本的形式存储表格数据
+- INI: (用户配置) 后缀名：[.ini]
+- JSON(): (用于WebAPI传输和配置) 后缀名：[.json]
+- Properties: (用户配置)
+- Protobuf: (用户WebAPI传输) 后缀名：[.proto]
+- TOML:
+- XML:
+- YAML: (Python, Perl, Ruby; 用于持久化和配置) 后缀名：[.yml, .yaml]
+
+## 序列化器与工厂
+
+ISerializer(序列化器)主要方法为：
+```
+Serialize(entity: Object): String # 序列化 内存中
+Deserialize<TypeEntity>(content: String): TypeEntity # 反序列化 内存中
+```
+工厂通过语言名称获取序列化器
+```txt
+factory.GetByName("YAML"): ISerializer
+```
+可配置，如：
+- 序列化模式：压缩与格式化（某些强格式类型不支持）

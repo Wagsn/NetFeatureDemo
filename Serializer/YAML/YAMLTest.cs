@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Serializer.YAML
+namespace SerializerSharp.YAML
 {
     public class YAMLTest
     {

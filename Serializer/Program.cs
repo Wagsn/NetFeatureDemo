@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Serializer
+namespace SerializerSharp
 {
-    public class Program
+    class Program
     {
         public static void Main(string[] args)
         {
+            // The three party Serializer
+            ThirdPartyTest();
+
+            Console.ReadKey();
+        }
+
+        public static void ThirdPartyTest()
+        {
+            // The three party Serializer
             YAML.YAMLTest.Test();
             Console.WriteLine();
             JSON.JSONTest.Test();
@@ -15,7 +24,6 @@ namespace Serializer
             XML.XMLTest.Test();
             Console.WriteLine();
             Props.PropertiesSerializerTest.Test();
-            Console.ReadKey();
         }
     }
 }

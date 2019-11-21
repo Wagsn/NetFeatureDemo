@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Serializer.JSON
+namespace SerializerSharp.JSON
 {
     public class JSONTest
     {
@@ -13,6 +13,7 @@ namespace Serializer.JSON
             Console.WriteLine($"deserialize: name: {per?.Name}, age: {per?.Age}, sex: {per?.Sex}");
             Console.WriteLine($"serialize: {Newtonsoft.Json.JsonConvert.SerializeObject(per)}");
         }
+
         public class Person
         {
             public string Name { get; set; }

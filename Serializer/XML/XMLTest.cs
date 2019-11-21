@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Serializer.XML
+namespace SerializerSharp.XML
 {
     public class XMLTest
     {
