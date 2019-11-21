@@ -12,6 +12,11 @@ namespace SerializerSharp
     public interface ISerializer
     {
         /// <summary>
+        /// 序列化器的名称（唯一，与序列化语言无关）
+        /// </summary>
+        string Name { get; set; }
+
+        /// <summary>
         /// 反序列化
         /// 从字符串到指定类型对象
         /// </summary>

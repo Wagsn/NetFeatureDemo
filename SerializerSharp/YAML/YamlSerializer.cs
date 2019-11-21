@@ -13,6 +13,8 @@ namespace SerializerSharp.YAML
         private YamlDotNet.Serialization.Deserializer _deserializer;
         private YamlDotNet.Serialization.Serializer _serializer;
 
+        public string Name { get; set; } = "YamlDotNet";
+
         public TypeEntity Deserialize<TypeEntity>(string content)
         {
             if (_deserializer == null) _deserializer = new YamlDotNet.Serialization.Deserializer();

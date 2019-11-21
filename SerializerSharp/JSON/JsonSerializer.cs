@@ -10,6 +10,8 @@ namespace SerializerSharp.JSON
     /// </summary>
     public class JsonSerializer : ISerializer
     {
+        public string Name { get; set; } = "Newtonsoft.Json";
+
         public TypeEntity Deserialize<TypeEntity>(string content)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<TypeEntity>(content);

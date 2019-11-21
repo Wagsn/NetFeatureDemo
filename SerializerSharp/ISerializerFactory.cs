@@ -15,5 +15,12 @@ namespace SerializerSharp
         /// <param name="serializerName"></param>
         /// <returns></returns>
         ISerializer GetByName(string serializerName);
+
+        /// <summary>
+        /// 添加序列化器
+        /// </summary>
+        /// <param name="serializer"></param>
+        /// <returns></returns>
+        void AddSerializer(ISerializer serializer);
     }
 }
