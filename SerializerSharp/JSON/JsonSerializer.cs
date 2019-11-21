@@ -25,6 +25,11 @@ namespace SerializerSharp.JSON
             return entity;
         }
 
+        public object Deserialize(string content, Type type)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject(content, type);
+        }
+
         public string Serialize(object entity)
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(entity);

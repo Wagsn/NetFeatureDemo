@@ -25,6 +25,13 @@ namespace SerializerSharp
         TypeEntity Deserialize<TypeEntity>(string content);
         /// <summary>
         /// 反序列化
+        /// </summary>
+        /// <param name="content">序列化文本</param>
+        /// <param name="type">目标类型</param>
+        /// <returns></returns>
+        object Deserialize(string content, Type type);
+        /// <summary>
+        /// 反序列化
         /// 从流到指定类型对象
         /// </summary>
         /// <typeparam name="TypeEntity"></typeparam>

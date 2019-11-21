@@ -37,6 +37,11 @@ namespace SerializerSharp.CSV
             throw new NotImplementedException();
         }
 
+        public object Deserialize(string content, Type type)
+        {
+            throw new NotImplementedException();
+        }
+
         public string Serialize(object entity)
         {
             throw new NotImplementedException();

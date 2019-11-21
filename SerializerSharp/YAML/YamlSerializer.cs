@@ -27,6 +27,12 @@ namespace SerializerSharp.YAML
             return _deserializer.Deserialize<TypeEntity>(new StreamReader(stream));
         }
 
+        public object Deserialize(string content, Type type)
+        {
+            if (_deserializer == null) _deserializer = new YamlDotNet.Serialization.Deserializer();
+            return _deserializer.Deserialize(content, type);
+        }
+
         public string Serialize(object entity)
         {
             if (_serializer == null) _serializer = new YamlDotNet.Serialization.Serializer();
