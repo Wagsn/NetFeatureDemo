@@ -10,7 +10,8 @@ namespace SerializerSharp
 
         public SerializerFactory()
         {
-            AddSerializer(new JSON.JsonSerializer());
+            AddSerializer<JSON.JsonSerializer>();
+            AddSerializer<YAML.YamlSerializer>();
         }
 
         public ISerializer GetByName(string serializerName)

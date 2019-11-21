@@ -17,6 +17,7 @@
 - [x] [JSON](https://www.json.org/)(JavaScript Object Notation): (用于WebAPI传输和配置) 后缀名：[.json] 依赖于 [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
 - [ ] Properties: (用户配置)
 - [ ] Protobuf: (用户WebAPI传输) 后缀名：[.proto]
+- [ ] SVG
 - [ ] TOML:
 - [ ] XML:
 - [x] [YAML](https://yaml.org/): (Python, Perl, Ruby; 用于持久化和配置) 后缀名：[.yml, .yaml] 依赖于[YamlDotNet](https://github.com/aaubry/YamlDotNet/wiki)
