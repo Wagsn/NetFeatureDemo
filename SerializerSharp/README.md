@@ -10,16 +10,16 @@
 - 网络之间传输数据 DTO
 - 不同编程语言之间交换数据
 
-## 已有的相关语言
+## 相关语言
 
-- CSV(Comma-Separated Values): 以纯文本的形式存储表格数据
-- INI(Initialization File, 初始化文件): 是windows的系统配置文件所采用的存储格式, 后缀名：[.ini]
+- [ ] CSV(Comma-Separated Values): 以纯文本的形式存储表格数据
+- [ ] INI(Initialization File, 初始化文件): 是windows的系统配置文件所采用的存储格式, 后缀名：[.ini]
 - [x] JSON(JavaScript Object Notation): (用于WebAPI传输和配置) 后缀名：[.json] 依赖于 [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
-- Properties: (用户配置)
-- Protobuf: (用户WebAPI传输) 后缀名：[.proto]
-- TOML:
-- XML:
-- YAML: (Python, Perl, Ruby; 用于持久化和配置) 后缀名：[.yml, .yaml]
+- [ ] Properties: (用户配置)
+- [ ] Protobuf: (用户WebAPI传输) 后缀名：[.proto]
+- [ ] TOML:
+- [ ] XML:
+- [ ] YAML: (Python, Perl, Ruby; 用于持久化和配置) 后缀名：[.yml, .yaml]
 
 ## 序列化器与工厂
 
