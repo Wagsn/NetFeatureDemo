@@ -12,21 +12,6 @@ namespace SerializerSharp
     public interface ISerializer
     {
         /// <summary>
-        /// 序列化
-        /// 从对象到字符串
-        /// 注：某些Byte模式的序列化器不支持输出String
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        string Serialize(object entity);
-        /// <summary>
-        /// 序列化
-        /// 从对象到流
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <param name="stream">写入流</param>
-        void Serialize(object entity, System.IO.Stream stream);
-        /// <summary>
         /// 反序列化
         /// 从字符串到指定类型对象
         /// </summary>
@@ -42,6 +27,21 @@ namespace SerializerSharp
         /// <param name="stream"></param>
         /// <returns></returns>
         TypeEntity Deserialize<TypeEntity>(System.IO.Stream stream);
+        /// <summary>
+        /// 序列化
+        /// 从对象到字符串
+        /// 注：某些Byte模式的序列化器不支持输出String
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        string Serialize(object entity);
+        /// <summary>
+        /// 序列化
+        /// 从对象到流
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="stream">写入流</param>
+        void Serialize(object entity, System.IO.Stream stream);
         // TODO 配置注入
     }
 }
