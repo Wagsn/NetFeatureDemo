@@ -25,8 +25,10 @@
 
 ISerializer(序列化器)主要方法为：
 ```
-Serialize(entity: Object): String # 序列化 内存中
 Deserialize<TypeEntity>(content: String): TypeEntity # 反序列化 内存中
+Deserialize<TypeEntity>(content: String, stream: System.IO.Stream): TypeEntity # 反序列化 流
+Serialize(entity: Object): String # 序列化 内存中
+Serialize(entity: Object, System.IO.Stream): Void # 序列化 流
 ```
 工厂通过语言名称获取序列化器
 ```txt
