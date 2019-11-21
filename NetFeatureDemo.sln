@@ -19,10 +19,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETExtensions", "NETExtensi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateEngineSharp", "TemplateEngineSharp\TemplateEngineSharp.csproj", "{24D14FE2-C4D9-488F-BE8C-F9DBEAFDA57A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializerSharpDemo", "SerializerSharpDemo\SerializerSharpDemo.csproj", "{E84C3E69-E2A1-439A-A64E-6FE344BB3A61}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializerSharp", "SerializerSharp\SerializerSharp.csproj", "{6F1649AE-4721-4B2C-99B4-B192D11E9942}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,14 +45,6 @@ Global
 		{24D14FE2-C4D9-488F-BE8C-F9DBEAFDA57A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24D14FE2-C4D9-488F-BE8C-F9DBEAFDA57A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24D14FE2-C4D9-488F-BE8C-F9DBEAFDA57A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E84C3E69-E2A1-439A-A64E-6FE344BB3A61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E84C3E69-E2A1-439A-A64E-6FE344BB3A61}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E84C3E69-E2A1-439A-A64E-6FE344BB3A61}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E84C3E69-E2A1-439A-A64E-6FE344BB3A61}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F1649AE-4721-4B2C-99B4-B192D11E9942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F1649AE-4721-4B2C-99B4-B192D11E9942}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F1649AE-4721-4B2C-99B4-B192D11E9942}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F1649AE-4721-4B2C-99B4-B192D11E9942}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
