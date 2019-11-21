@@ -1,6 +1,6 @@
 ﻿# Properties
 
-properties 文件
+properties 文件后缀名 .properties
 
 ```properties
 # properties(示例来源于Springboot User guide):
