@@ -13,6 +13,8 @@ namespace Serializer
             JSON.JSONTest.Test();
             Console.WriteLine();
             XML.XMLTest.Test();
+            Console.WriteLine();
+            Props.PropertiesSerializerTest.Test();
             Console.ReadKey();
         }
     }

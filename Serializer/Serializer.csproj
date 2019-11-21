@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ProtoBufs\" />
-    <Folder Include="TOML\" />
     <Folder Include="Properties\" />
-    <Folder Include="INI\" />
-    <Folder Include="Config\" />
   </ItemGroup>
 
   <ItemGroup>

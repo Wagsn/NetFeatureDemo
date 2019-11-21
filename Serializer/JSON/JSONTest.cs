@@ -9,7 +9,6 @@ namespace Serializer.JSON
         public static void Test()
         {
             Console.WriteLine("json: Newtonsoft.Json.JsonConvert");
-            // {\"Name\": \"Wagsn\"\"Age\": 23\"Sex\": true}
             var per = Newtonsoft.Json.JsonConvert.DeserializeObject<Person>("{\"Name\": \"Wagsn\",\"Age\": 23,\"Sex\": true}");
             Console.WriteLine($"deserialize: name: {per?.Name}, age: {per?.Age}, sex: {per?.Sex}");
             Console.WriteLine($"serialize: {Newtonsoft.Json.JsonConvert.SerializeObject(per)}");
