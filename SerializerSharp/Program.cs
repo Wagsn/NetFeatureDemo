@@ -25,6 +25,8 @@ namespace SerializerSharp
             Console.WriteLine();
             INI.INITest.Test();
             Console.WriteLine();
+            CSVTest.Test();
+            Console.WriteLine();
             Props.PropertiesSerializerTest.Test();
         }
     }

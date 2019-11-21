@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SerializerSharp.XML
 {
-    internal class XMLTest
+    public class XMLTest
     {
         public static void Test()
         {
