@@ -9,6 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETMultiTargetsDemo", "Targ
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "参考文档", "参考文档", "{EA569C64-09B3-4FCF-BAD9-065B26F1B918}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -19,11 +20,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateEngineSharp", "TemplateEngineSharp\TemplateEngineSharp.csproj", "{24D14FE2-C4D9-488F-BE8C-F9DBEAFDA57A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializerSharp", "Serializer\SerializerSharp.csproj", "{1914A7B1-6A23-4502-A498-0A8AA37794B6}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F052A094-0A20-4559-9E73-91B58198D12E}"
-	ProjectSection(SolutionItems) = preProject
-		.gitignore = .gitignore
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializerSharpDemo", "SerializerSharpDemo\SerializerSharpDemo.csproj", "{E84C3E69-E2A1-439A-A64E-6FE344BB3A61}"
 EndProject
