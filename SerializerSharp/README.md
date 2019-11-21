@@ -34,5 +34,24 @@ Serialize(entity: Object, System.IO.Stream): Void # 序列化 流
 ```txt
 factory.GetByName("YAML"): ISerializer
 ```
+
+## 使用演示
+
+通过JSON的序列化器来演示使用方法
+```csharp
+Console.WriteLine("JSON:");
+var serializer = new SerializerSharp.JSON.JsonSerializer();
+var person = new Person { Name = "Wagsn", Age = 23, Sex = true };
+var content = serializer.Serialize(person);
+Console.WriteLine("Serialize: \r\n" + content);
+var entity = serializer.Deserialize<Person>(content);
+Console.WriteLine($"Deserialize: name={entity.Name}, " + entity);
+entity.Age++;
+Console.WriteLine("Serialize after Modified value: \r\n" + serializer.Serialize(entity));
+var entityFromFile = serializer.Deserialize<Person>(System.IO.File.OpenRead("person.json"));
+Console.WriteLine($"Deserialize from file: name={entityFromFile.Name}, " + entityFromFile);
+```
+## 预期的目标
+
 可配置，如：
 - 序列化模式：压缩与格式化（某些强格式类型不支持）
