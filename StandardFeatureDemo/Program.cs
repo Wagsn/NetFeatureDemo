@@ -15,14 +15,16 @@ namespace NetFeatureDemo
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            //TestDownwardTransformation();
+#if CORE20
+            HttpWebDemo.Main(args);
+#endif
+        }
 
+        static void Test(string[] args)
+        {
             List<Tests.ITest> tests = new List<Tests.ITest>();
-
 #if CORE20
             tests.Add(new Tests.HttpClientTest());
-            tests.Add(new Tests.WebClientTest());
-            tests.Add(new Tests.RestClientTest());
 #endif
             tests.Add(new Tests.WebRequestTest());
 
