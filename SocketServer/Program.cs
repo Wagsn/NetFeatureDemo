@@ -9,6 +9,7 @@ namespace SocketServer
     // TCP Socket http://www.jytek.com/seesharpsocket
     // UDP Socket https://blog.csdn.net/i1tws/article/details/86624951
     // TCP 与 Socket 的关系 https://www.cnblogs.com/xuan52rock/p/9454696.html
+    // 通信框架 使用它进行互相通信，为什么不用HTTP请求？
     class Program
     {
         static void Main(string[] args)
