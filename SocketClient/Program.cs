@@ -49,6 +49,7 @@ namespace SocketClient
                 if (socketClient != null && socketClient.Connected)
                 {
                     socketClient.Send(arrByte);
+                    //socket.SendFile(path);
                 }
             }
         }
@@ -73,12 +74,6 @@ namespace SocketClient
 
                 Console.WriteLine("服务器下线了！");
             }
-        }
-
-        private bool isReceive { get; set; } = false;
-        void Print(string msg, bool isReceive)
-        {
-
         }
     }
 }

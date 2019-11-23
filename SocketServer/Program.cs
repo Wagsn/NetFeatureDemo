@@ -18,29 +18,25 @@ namespace SocketServer
             var pro = new Program();
             pro.Server_Listen();
         }
-        // 服务端用于socket.Accept()
-        Thread thrAccept;
-        // 服务端用于监听
-        Socket socketListen = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-        // 与客户端的连接
+        // 服务端用于socket.Accept()
+        // 与客户端的连接 多线程公共资源
         Dictionary<string, Socket> socketClientConns { get; } = new Dictionary<string, Socket>();
-        // 连接所在的线程
+        // 连接所在的线程 多线程公共资源
         Dictionary<string, Thread> threadClients { get; } = new Dictionary<string, Thread>();
 
         private void Server_Listen()
         {
             //第一步：绑定端口
-            IPAddress ip = IPAddress.Parse("127.0.0.1");
-            IPEndPoint endPoint = new IPEndPoint(ip, 10001);
-            socketListen.Bind(endPoint);
-            socketListen.Listen(10);
+            // 服务端用于监听
+            Socket socketListen = CreateServerSocket();
 
             //第二步：开启线程，进行监听
-            thrAccept = new Thread(Watching);
+            Thread thrAccept = new Thread(Watching);
             thrAccept.IsBackground = true;
-            thrAccept.Start();
-            Console.WriteLine("Server started Listen on 127.0.0.1:10001");
+            thrAccept.Start(socketListen);
+            Console.WriteLine("Server started Listen on "+ socketListen.LocalEndPoint.ToString());
+            // 死循环发送数据到客户端
             while (true)
             {
                 Console.Write("Receive to client> ");
@@ -57,12 +53,27 @@ namespace SocketServer
             }
         }
 
+        private Socket CreateServerSocket(int port = 10001, int connCount = 10)
+        {
+            //IPAddress ip = IPAddress.Parse("127.0.0.1");
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);
+            var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            socket.Bind(endPoint);
+            socket.Listen(connCount);
+            return socket;
+        }
+
+        /// <summary>
+        /// 一个服务器Socket监听端口接受连接一个线程
+        /// </summary>
+        /// <param name="obj"></param>
         private void Watching(object obj)
         {
+            var socket = obj as Socket;
             while (true)
             {
                 //第三步：监听到请求后返回一个通信套接字，开启线程以接收信息
-                var socketClientConn = socketListen.Accept();
+                var socketClientConn = socket.Accept();
                 Console.WriteLine("监听到了一个连接请求！");
                 socketClientConns.Add(socketClientConn.RemoteEndPoint.ToString(), socketClientConn);
                 Console.WriteLine("当前所有的连接：" + string.Join(",", socketClientConns.Keys));
@@ -74,9 +85,13 @@ namespace SocketServer
             }
         }
 
-        private void Receive(object socketClientConn)
+        /// <summary>
+        /// 一个Socket连接一个线程接收数据
+        /// </summary>
+        /// <param name="obj"></param>
+        private void Receive(object obj)
         {
-            Socket socket = socketClientConn as Socket;
+            Socket socket = obj as Socket;
             while (true)
             {
                 // 第四步：准备2M缓冲数组接收信息
