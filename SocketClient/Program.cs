@@ -71,7 +71,7 @@ namespace SocketClient
             }
             catch (Exception)
             {
-
+                // TODO 重连 连接外部控制
                 Console.WriteLine("服务器下线了！");
             }
         }

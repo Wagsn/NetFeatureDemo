@@ -47,6 +47,7 @@ namespace SocketServer
                 {
                     if(comunicate.Value != null && comunicate.Value.Connected)
                     {
+                        // TODO 数据转发
                         comunicate.Value.Send(arrByte);
                     }
                 }
