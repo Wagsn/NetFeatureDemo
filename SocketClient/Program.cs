@@ -25,8 +25,7 @@ namespace SocketClient
         private void Request()
         {
             //第一步：创建socket，并请求连接服务器
-            IPAddress ip = IPAddress.Parse("127.0.0.1");
-            IPEndPoint endPoint = new IPEndPoint(ip, int.Parse("10001"));
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), int.Parse("10001"));
             socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socketClient.Connect(endPoint);
 
