@@ -14,9 +14,17 @@ namespace SocketServer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("SocketServer.exe is Run");
-            var pro = new Program();
-            pro.Server_Listen();
+            Console.WriteLine("SocketServer is Run");
+            try
+            {
+                var pro = new Program();
+                pro.Server_Listen();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Fatal error occurred: " + ex.ToString());
+            }
+            Console.ReadKey();
         }
 
         // 服务端用于socket.Accept()
@@ -75,14 +83,13 @@ namespace SocketServer
             {
                 //第三步：监听到请求后返回一个通信套接字，开启线程以接收信息
                 var socketClientConn = socket.Accept();
-                Console.WriteLine("监听到了一个连接请求！");
+                Console.WriteLine("Received a connection request from " + socketClientConn.RemoteEndPoint.ToString());
                 socketClientConns.Add(socketClientConn.RemoteEndPoint.ToString(), socketClientConn);
-                Console.WriteLine("当前所有的连接：" + string.Join(",", socketClientConns.Keys));
+                Console.WriteLine("All current connections: " + string.Join(",", socketClientConns.Keys));
                 var thrReceive = new Thread(Receive);
                 thrReceive.IsBackground = true;
                 thrReceive.Start(socketClientConn);
                 threadClients.Add(socketClientConn.RemoteEndPoint.ToString(), thrReceive);
-                Console.WriteLine("开始接收通信信息");
             }
         }
 
@@ -104,11 +111,12 @@ namespace SocketServer
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("客户端下线了！"+ex.Message);
+                    Console.WriteLine(socket.RemoteEndPoint.ToString() + " disconnect: " + ex.ToString());
                     // 移出已关闭的连接
                     socketClientConns.Remove(socket.RemoteEndPoint.ToString());
                     // 移出已关闭连接的线程
                     threadClients.Remove(socket.RemoteEndPoint.ToString());
+                    socket.Close();
                     break; // 该连接已关闭，退出线程
                 }
                 // 数据处理
