@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
+using SocketCommons;
 
 namespace SocketClient
 {
@@ -40,11 +40,7 @@ namespace SocketClient
             socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socketClient.Connect(remoteEndPoint);
 
-            byte[] buffer = Encoding.UTF8.GetBytes($"Client {socketClient.LocalEndPoint.ToString()} start");
-            // 发送请求报文
-            socketClient.Send(buffer); 
-
-            Console.WriteLine("连接服务器成功！！！");
+            Console.WriteLine("Server connection successful: "+socketClient.RemoteEndPoint.ToString());
 
             //第二步：连接服务器成功后，开启线程，接收服务器信息。
             thrRec = new Thread(Receive);
@@ -53,14 +49,26 @@ namespace SocketClient
 
             while (true)
             {
-                Console.Write("Send to server> ");
+                Console.WriteLine("Send to server> ");
                 var str = Console.ReadLine();
                 Console.WriteLine($"Server Connected: {socketClient?.Connected ?? false}");
-                byte[] arrByte = System.Text.Encoding.UTF8.GetBytes($"{str} - on {DateTime.Now.ToString()}");
-                if (socketClient != null && socketClient.Connected)
+                // 插入序列化器
+                //var data = new 
+                //JsonConvert.DeserializeObject()
+                var content = $"{str} - on {DateTime.Now.ToString()}";
+                var dataBytes = ProtocolDataHelper.Packing(content);
+                try
                 {
-                    socketClient.Send(arrByte);
-                    //socket.SendFile(path);
+                    if (socketClient != null && socketClient.Connected)
+                    {
+                        // 发送请求报文
+                        socketClient.Send(dataBytes);
+                        //socket.SendFile(path);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("Data sending failed: "+ex.ToString());
                 }
             }
         }
@@ -76,12 +84,16 @@ namespace SocketClient
                 try
                 {
                     // 重连
-                    if (!socketClient.Connected)
+                    if (socketClient == null || !socketClient.Connected)
                     {
                         try
                         {
                             Console.WriteLine("Connection dropped!");
-                            socketClient.Close();
+                            if(socketClient != null)
+                            {
+                                socketClient.Close();
+                                socketClient = null;
+                            }
                             socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                             // TODO 重连间隔时间应该呈Fibonacci数列 1 1 2 3 5 8 13 的方式递增，重连次数为10次，然后等待手动重连
                             Thread.Sleep(1000*3);
@@ -91,7 +103,9 @@ namespace SocketClient
                         }
                         catch(Exception ex)
                         {
-                            Console.WriteLine("Reconnection failure: "+ex.ToString());
+                            Console.WriteLine("Reconnection failure: " + ex.ToString());
+                            socketClient.Close();
+                            socketClient = null;
                             continue;  // 重试失败，再次循环重试
                         }
                     }
@@ -102,12 +116,12 @@ namespace SocketClient
                 }
                 catch (Exception ex)
                 {
-                    // TODO 重连 连接外部控制
-                    Console.WriteLine("服务器下线了！"+ex.ToString());
+                    Console.WriteLine("服务器下线了！" + ex.ToString());
                 }
-                if(length >= 0)
+                if(length > 0)
                 {
-                    string strMsg = System.Text.Encoding.UTF8.GetString(byteDataArr, 0, length);
+                    var data = ProtocolDataHelper.Unpacking(byteDataArr, 0, length);
+                    string strMsg = EncodingHelper.Decoding(data.Content, 0, data.Content.Length);
                     if (string.IsNullOrWhiteSpace(strMsg)) continue;
                     Console.WriteLine($"Receive from Server {socketClient.RemoteEndPoint.ToString()} on {DateTime.Now}: \r\n" + strMsg);
                     Console.WriteLine("Send to server> ");

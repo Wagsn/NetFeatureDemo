@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocketCommons;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
@@ -9,7 +10,8 @@ namespace SocketServer
     // TCP Socket http://www.jytek.com/seesharpsocket
     // UDP Socket https://blog.csdn.net/i1tws/article/details/86624951
     // TCP 与 Socket 的关系 https://www.cnblogs.com/xuan52rock/p/9454696.html
-    // 通信框架 使用它进行互相通信，为什么不用HTTP请求？
+    // TODO 通信框架 协议层为什么不用HTTP协议？
+    // TODO 通信框架 控制层应该与协议层分离
     class Program
     {
         static void Main(string[] args)
@@ -47,16 +49,23 @@ namespace SocketServer
             // 死循环发送数据到客户端
             while (true)
             {
-                Console.Write("Receive to client> ");
+                Console.WriteLine("Receive to client> ");
                 var str = Console.ReadLine();
                 // 第五步：发送信息
-                byte[] arrByte = System.Text.Encoding.UTF8.GetBytes($"{str} - by Server on {DateTime.Now.ToString()}");
-                foreach(var comunicate in socketClientConns)
+                // TODO 构建请求或响应管道，包含 请求，解密->反序列化->...处理...->序列化->加密，响应
+                // TODO 一次请求的数据过大，构建流读取？JSON是否支持流读取
+                // 使用序列化器 转换字节数据和对象
+                var content = $"{str} - by Server on {DateTime.Now.ToString()}";
+                var dataBytes = SerializationHelper.Serialize(new ProtocolData
+                {
+                    Content = EncodingHelper.Encoding(content)
+                });
+                // TODO 这里是群发，改为通过协议转发
+                foreach (var comunicate in socketClientConns)
                 {
                     if(comunicate.Value != null && comunicate.Value.Connected)
                     {
-                        // TODO 数据转发
-                        comunicate.Value.Send(arrByte);
+                        comunicate.Value.Send(dataBytes);
                     }
                 }
             }
@@ -119,11 +128,15 @@ namespace SocketServer
                     socket.Close();
                     break; // 该连接已关闭，退出线程
                 }
-                // 数据处理
-                // 将字节数据接收为字符串
-                string strMsg = System.Text.Encoding.UTF8.GetString(byteDataArr, 0, length);
-                if (string.IsNullOrWhiteSpace(strMsg)) continue;
-                Console.WriteLine($"Receive from Client {socket.RemoteEndPoint.ToString()} on {DateTime.Now}: \r\n" + strMsg.Trim().Replace("\r\n", ""));
+                // 接收数据处理
+                if(length > 0)
+                {
+                    // 将字节数据接收为字符串
+                    var data = SocketCommons.SerializationHelper.Deserialize<SocketCommons.ProtocolData>(byteDataArr, 0, length);
+                    string strMsg = System.Text.Encoding.UTF8.GetString(data.Content, 0, data.Content.Length);
+                    if (string.IsNullOrWhiteSpace(strMsg)) continue;
+                    Console.WriteLine($"Receive from Client {socket.RemoteEndPoint.ToString()} on {DateTime.Now}: \r\n" + strMsg.Trim().Replace("\r\n", ""));
+                }
             }
         }
     }

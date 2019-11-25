@@ -9,4 +9,14 @@
     <None Remove="Program.cs~RFecb966f.TMP" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.10.1" />
+    <PackageReference Include="Google.Protobuf.Tools" Version="3.10.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SocketCommons\SocketCommons.csproj" />
+  </ItemGroup>
+
 </Project>
