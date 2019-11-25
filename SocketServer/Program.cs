@@ -54,7 +54,7 @@ namespace SocketServer
             }
         }
 
-        private Socket CreateServerSocket(int port = 10001, int connCount = 10)
+        private Socket CreateServerSocket(int port = 1014, int connCount = 10)
         {
             //IPAddress ip = IPAddress.Parse("127.0.0.1");
             IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);

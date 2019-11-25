@@ -12,7 +12,7 @@ namespace SocketClient
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("SocketClient run");
             var pro = new Program();
             pro.Request();
             Console.ReadKey();
@@ -25,12 +25,15 @@ namespace SocketClient
         private void Request()
         {
             //第一步：创建socket，并请求连接服务器
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), int.Parse("10001"));
+            var remoteIp = "127.0.0.1";
+            var port = "1014";
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(remoteIp), int.Parse(port));
             socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socketClient.Connect(endPoint);
 
-            byte[] buffer = Encoding.UTF8.GetBytes("Client start");
-            socketClient.Send(buffer); //发送请求报文
+            byte[] buffer = Encoding.UTF8.GetBytes($"Client {socketClient.LocalEndPoint.ToString()} start");
+            // 发送请求报文
+            socketClient.Send(buffer); 
 
             Console.WriteLine("连接服务器成功！！！");
 
