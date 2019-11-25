@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SocketServer
+namespace SocketCommons
 {
     /// <summary>
     /// 用户信息

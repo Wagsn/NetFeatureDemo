@@ -8,15 +8,16 @@ namespace SocketClient
 {
     // TCP Socket http://www.jytek.com/seesharpsocket
     // UDP Socket https://blog.csdn.net/i1tws/article/details/86624951
-    class Program
+    public class Client
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("SocketClient run");
+            Console.WriteLine("Client started!");
             try
             {
-                var pro = new Program();
-                pro.Request();
+                var remoteIp = "127.0.0.1";
+                var port = "1014";
+                new Client().Start($"{remoteIp}:{port}");
             }
             catch(Exception ex)
             {
@@ -30,19 +31,17 @@ namespace SocketClient
         Thread thrRec;
         EndPoint remoteEndPoint;
 
-        private void Request()
+        public void Start(string endPoint)
         {
-            //第一步：创建socket，并请求连接服务器
-            var remoteIp = "127.0.0.1";
-            var port = "1014";
-            remoteEndPoint = IPEndPoint.Parse($"{remoteIp}:{port}");
+            remoteEndPoint = IPEndPoint.Parse(endPoint);
 
+            // 第一步：创建socket，并请求连接服务器
             socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socketClient.Connect(remoteEndPoint);
 
-            Console.WriteLine("Server connection successful: "+socketClient.RemoteEndPoint.ToString());
+            Console.WriteLine("Server connection successful: " + socketClient.RemoteEndPoint.ToString());
 
-            //第二步：连接服务器成功后，开启线程，接收服务器信息。
+            // 第二步：连接服务器成功后，开启线程，接收服务器信息。
             thrRec = new Thread(Receive);
             thrRec.IsBackground = true;
             thrRec.Start(socketClient);
@@ -53,8 +52,6 @@ namespace SocketClient
                 var str = Console.ReadLine();
                 Console.WriteLine($"Server Connected: {socketClient?.Connected ?? false}");
                 // 插入序列化器
-                //var data = new 
-                //JsonConvert.DeserializeObject()
                 var content = $"{str} - on {DateTime.Now.ToString()}";
                 var dataBytes = ProtocolDataHelper.Packing(content);
                 try
@@ -66,13 +63,17 @@ namespace SocketClient
                         //socket.SendFile(path);
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Data sending failed: "+ex.ToString());
+                    Console.WriteLine("Data sending failed: " + ex.ToString());
                 }
             }
         }
 
+        /// <summary>
+        /// 接收数据
+        /// </summary>
+        /// <param name="socketClientObj">Socket对象</param>
         void Receive(object socketClientObj)
         {
             var socket = socketClientObj as Socket;
