@@ -32,7 +32,7 @@ namespace EFCoreDemo
                 // EFCore 3.0
                 //var comps = dbContext.Set<Company>().FromSqlInterpolated(querySql);
                 // EFCore 2.x
-                foreach (var company in dbContext.Set<Company>().FromSql(querySql).ToList())
+                foreach (var company in dbContext.Set<Company>().FromSql(querySql).OrderBy(a => a.Id).ToList())
                 {
                     Console.WriteLine("{0}-{1}", company.Name, company.Address);
                 }
