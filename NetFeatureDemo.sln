@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreDemo", "EFCoreDemo\EF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatcherDemo", "WatcherDemo\WatcherDemo.csproj", "{AC4EB8D8-5E2B-40F5-9377-D4FD5535DF2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddkewareDemo", "MiddkewareDemo\MiddkewareDemo.csproj", "{E5924719-7062-4C12-87CB-7DD47E02B1FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{AC4EB8D8-5E2B-40F5-9377-D4FD5535DF2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC4EB8D8-5E2B-40F5-9377-D4FD5535DF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC4EB8D8-5E2B-40F5-9377-D4FD5535DF2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5924719-7062-4C12-87CB-7DD47E02B1FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5924719-7062-4C12-87CB-7DD47E02B1FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5924719-7062-4C12-87CB-7DD47E02B1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5924719-7062-4C12-87CB-7DD47E02B1FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
