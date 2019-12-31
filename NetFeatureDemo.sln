@@ -31,11 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocketCommons", "SocketComm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreDemo", "EFCoreDemo\EFCoreDemo.csproj", "{46E1252F-6B0E-4D87-8B59-C54E9FB49268}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatcherDemo", "WatcherDemo\WatcherDemo.csproj", "{AC4EB8D8-5E2B-40F5-9377-D4FD5535DF2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WatcherDemo", "WatcherDemo\WatcherDemo.csproj", "{AC4EB8D8-5E2B-40F5-9377-D4FD5535DF2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddkewareDemo", "MiddkewareDemo\MiddkewareDemo.csproj", "{E5924719-7062-4C12-87CB-7DD47E02B1FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddkewareDemo", "MiddkewareDemo\MiddkewareDemo.csproj", "{E5924719-7062-4C12-87CB-7DD47E02B1FF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthDemo", "AuthDemo\AuthDemo.csproj", "{6D711C17-FEC8-4A66-8E63-9267A552013E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookieAuthDemo", "CookieAuthDemo\CookieAuthDemo.csproj", "{19BC32F9-FBCD-4EBC-8A13-75A95A56BB9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,10 +91,10 @@ Global
 		{E5924719-7062-4C12-87CB-7DD47E02B1FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5924719-7062-4C12-87CB-7DD47E02B1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5924719-7062-4C12-87CB-7DD47E02B1FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D711C17-FEC8-4A66-8E63-9267A552013E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D711C17-FEC8-4A66-8E63-9267A552013E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D711C17-FEC8-4A66-8E63-9267A552013E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D711C17-FEC8-4A66-8E63-9267A552013E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19BC32F9-FBCD-4EBC-8A13-75A95A56BB9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19BC32F9-FBCD-4EBC-8A13-75A95A56BB9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19BC32F9-FBCD-4EBC-8A13-75A95A56BB9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19BC32F9-FBCD-4EBC-8A13-75A95A56BB9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
