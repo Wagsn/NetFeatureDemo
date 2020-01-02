@@ -41,6 +41,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtAuthDemo", "JwtAuthDemo\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityDemo", "IdentityDemo\IdentityDemo.csproj", "{8AD8CB8C-F64C-4220-8894-C39C67301F3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicPluginsSiteDemo", "DynamicPluginsSiteDemo\DynamicPluginsSiteDemo.csproj", "{B0AD08E2-4D4D-484E-80DF-62A0EFA90968}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PluginDemo", "PluginDemo", "{D187612A-06FE-4255-AD22-119CF79606E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginCore", "PluginCore\PluginCore.csproj", "{36F1BF52-CE49-4602-B5FE-9A2103A8C335}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +113,14 @@ Global
 		{8AD8CB8C-F64C-4220-8894-C39C67301F3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AD8CB8C-F64C-4220-8894-C39C67301F3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AD8CB8C-F64C-4220-8894-C39C67301F3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0AD08E2-4D4D-484E-80DF-62A0EFA90968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0AD08E2-4D4D-484E-80DF-62A0EFA90968}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0AD08E2-4D4D-484E-80DF-62A0EFA90968}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0AD08E2-4D4D-484E-80DF-62A0EFA90968}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36F1BF52-CE49-4602-B5FE-9A2103A8C335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36F1BF52-CE49-4602-B5FE-9A2103A8C335}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36F1BF52-CE49-4602-B5FE-9A2103A8C335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36F1BF52-CE49-4602-B5FE-9A2103A8C335}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +129,7 @@ Global
 		{6ED99F6B-8D76-4280-86F9-F1A3CFC428CE} = {1A0AD143-3A01-44D4-B072-19F2A290F399}
 		{6A4B2386-0B1D-4DF9-A143-A0DA91EBF633} = {1A0AD143-3A01-44D4-B072-19F2A290F399}
 		{18816B2E-6A75-4FEF-B8A7-729F0B6AD473} = {1A0AD143-3A01-44D4-B072-19F2A290F399}
+		{36F1BF52-CE49-4602-B5FE-9A2103A8C335} = {D187612A-06FE-4255-AD22-119CF79606E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {008A2B76-9377-465E-86F1-661FA0471A67}
